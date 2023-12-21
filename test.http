@@ -1,0 +1,29 @@
+GET http://127.0.0.1:3000/
+
+### Ping
+GET http://127.0.0.1:3000/ping
+
+### Nested routes open
+GET http://127.0.0.1:3000/nested-routes/bigid/open
+
+
+### Error root
+GET http://127.0.0.1:3000/error
+
+### Error case 2
+GET http://127.0.0.1:3000/error/case2
+
+### Error case 3
+POST http://127.0.0.1:3000/error/case3
+content-type: application/json
+
+{}
+
+### nested-routes root
+GET http://127.0.0.1:3000/nested-routes
+
+### nested-routes root
+POST http://127.0.0.1:3000/nested-routes
+content-type: application/json
+
+{}
