@@ -2,7 +2,7 @@
 async function errorsRoutes(fastify) {
   fastify.get('/', {
     handler: (req, res) => {
-      throw new Error('each this is error endpoint')
+      throw new Error('errorsRoutes this is error endpoint')
     },
     schema: {
       200: {
