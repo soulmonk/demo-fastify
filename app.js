@@ -4,8 +4,10 @@ import { join, dirname } from 'node:path'
 import autoload from '@fastify/autoload'
 import { fileURLToPath } from 'node:url'
 
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
 export default async function init (instance, opts) {
-  const __dirname = dirname(fileURLToPath(import.meta.url))
   instance.register(autoload, {
     dir: join(__dirname, 'plugins'),
     options: { ...opts }
@@ -20,7 +22,8 @@ export default async function init (instance, opts) {
 async function run () {
   const instance = fastify({
     logger: {
-      level: process.env.LOG_LEVEL || 'info'
+      level: process.env.LOG_LEVEL || 'info',
+      // messageKey: 'message', // if you want to change the message key from 'msg' to 'message'
       // sanitize
     }
     // disableRequestLogging: false,
@@ -43,9 +46,8 @@ async function run () {
     instance.log.error(error, 'could not init server')
   }
 }
-if (import.meta.url.startsWith('file:')) { // (A)
-  const modulePath = fileURLToPath(import.meta.url)
-  if (process.argv[1] === modulePath) { // (B)
+if (import.meta.url.startsWith('file:')) {
+  if (process.argv[1] === __filename) {
     run()
   }
 }
