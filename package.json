@@ -23,6 +23,7 @@
     "npm": ">=10.x.x"
   },
   "devDependencies": {
-    "fastify-cli": "^5.9.0"
+    "fastify-cli": "^5.9.0",
+    "standard": "^17.1.0"
   }
 }

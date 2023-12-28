@@ -1,18 +1,18 @@
-"use strict";
-async function nestedRoutes(fastify) {
-    fastify.get('/', {
-        handler: (req, res) => {
-          return {
-            id: Math.random().toString().slice(2)
-          }
-        },
-        schema: {
-          200: {
-            type: 'object'
-          }
-        },
-    });
-    fastify.addHook('onRequest', fastify.authorization);
+'use strict'
+async function nestedRoutes (fastify) {
+  fastify.get('/', {
+    handler: (req, res) => {
+      return {
+        id: Math.random().toString().slice(2)
+      }
+    },
+    schema: {
+      200: {
+        type: 'object'
+      }
+    }
+  })
+  fastify.addHook('onRequest', fastify.authorization)
 }
 
-export default nestedRoutes;
+export default nestedRoutes

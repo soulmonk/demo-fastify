@@ -1,10 +1,10 @@
-"use strict";
-async function nestedRoutesOpenByIdRoutes(fastify) {
+'use strict'
+async function nestedRoutesOpenByIdRoutes (fastify) {
   fastify.get('/open', {
     handler: (req, res) => {
       const id = req.params.id
-      console.log("line 6", req.log)
-      req.log.info({id}, 'handler nestedRoutesOpenByIdRoutes')
+      console.log('line 6', req.log)
+      req.log.info({ id }, 'handler nestedRoutesOpenByIdRoutes')
       return {
         data: {
           id
@@ -16,8 +16,8 @@ async function nestedRoutesOpenByIdRoutes(fastify) {
       200: {
         type: 'object'
       }
-    },
-  });
+    }
+  })
 }
 
-export default nestedRoutesOpenByIdRoutes;
+export default nestedRoutesOpenByIdRoutes
