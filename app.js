@@ -4,7 +4,7 @@ import { join, dirname } from 'node:path'
 import autoload from '@fastify/autoload'
 import { fileURLToPath } from 'node:url'
 
-async function init (instance, opts) {
+export default async function init (instance, opts) {
   const __dirname = dirname(fileURLToPath(import.meta.url))
   instance.register(autoload, {
     dir: join(__dirname, 'plugins'),
