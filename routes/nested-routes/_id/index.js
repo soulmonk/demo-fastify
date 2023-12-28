@@ -1,9 +1,9 @@
-"use strict";
-async function nestedRoutesByIdRoutes(fastify) {
+'use strict'
+async function nestedRoutesByIdRoutes (fastify) {
   fastify.get('/', {
     handler: (req, res) => {
       const id = req.params.id
-      req.log({id}, "handler get / nestedRoutesByIdRoutes")
+      req.log({ id }, 'handler get / nestedRoutesByIdRoutes')
       fastify.makeANoise(fastify.log, 'nestedRoutesByIdRoutes')
       fastify.makeANoise(req.log, 'nestedRoutesByIdRoutes')
       fastify.makeANoiseError(fastify.log, 'nestedRoutesByIdRoutes')
@@ -16,12 +16,12 @@ async function nestedRoutesByIdRoutes(fastify) {
       200: {
         type: 'object'
       }
-    },
-  });
+    }
+  })
   fastify.get('/open', {
     handler: (req, res) => {
       const id = req.params.id
-      req.log({id}, "handler get /open nestedRoutesByIdRoutes")
+      req.log({ id }, 'handler get /open nestedRoutesByIdRoutes')
       return {
         data: {
           id
@@ -33,9 +33,9 @@ async function nestedRoutesByIdRoutes(fastify) {
       200: {
         type: 'object'
       }
-    },
-  });
-  fastify.addHook('onRequest', fastify.authorization);
+    }
+  })
+  fastify.addHook('onRequest', fastify.authorization)
 }
 
-module.exports = nestedRoutesByIdRoutes;
+export default nestedRoutesByIdRoutes
