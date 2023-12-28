@@ -27,3 +27,7 @@ POST http://127.0.0.1:3000/nested-routes
 content-type: application/json
 
 {}
+
+### child-logger
+GET http://127.0.0.1:3000/child-logger
+content-type: application/json
