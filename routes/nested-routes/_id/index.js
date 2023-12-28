@@ -38,4 +38,4 @@ async function nestedRoutesByIdRoutes(fastify) {
   fastify.addHook('onRequest', fastify.authorization);
 }
 
-module.exports = nestedRoutesByIdRoutes;
+export default nestedRoutesByIdRoutes;

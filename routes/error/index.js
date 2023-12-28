@@ -46,4 +46,4 @@ async function errorsRoutes(fastify) {
   });
 }
 
-module.exports = errorsRoutes;
+export default errorsRoutes;

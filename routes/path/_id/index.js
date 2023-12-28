@@ -1,5 +1,5 @@
 "use strict";
-module.exports = async function (fastify) {
+export default async function(fastify) {
   fastify.get('/', {
     handler: (req, res) => {
       const id = req.params.id

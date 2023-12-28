@@ -1,15 +1,17 @@
 "use strict";
-const fastify = require("fastify");
-const path = require("path");
-const autoload = require("@fastify/autoload");
+import fastify from "fastify";
+import { join, dirname } from "node:path";
+import autoload from "@fastify/autoload";
+import { fileURLToPath } from 'node:url';
 
 async function init(instance, opts) {
+  const __dirname = dirname(fileURLToPath(import.meta.url));
   void instance.register(autoload, {
-    dir: path.join(__dirname, "plugins"),
+    dir: join(__dirname, "plugins"),
     options: { ...opts }
   });
   void instance.register(autoload, {
-    dir: path.join(__dirname, "routes"),
+    dir: join(__dirname, "routes"),
     routeParams: true,
     options: { ...opts }
   });
@@ -41,9 +43,11 @@ async function run() {
     instance.log.error(error, "could not init server");
   }
 }
-
-if (require.main === module) {
-void run()
+if (import.meta.url.startsWith('file:')) { // (A)
+  const modulePath = fileURLToPath(import.meta.url);
+  if (process.argv[1] === modulePath) { // (B)
+    void run()
+  }
 }
 
-module.exports = init;
+

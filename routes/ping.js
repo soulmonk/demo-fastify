@@ -1,5 +1,5 @@
 "use strict";
-const S = require("fluent-json-schema");
+import S from 'fluent-json-schema';
 
 const logMe = (logger, prefix) => {
   const msg = `${prefix} - I'm a message`;
@@ -34,4 +34,4 @@ async function pingRoutes(fastify) {
     });
 }
 
-module.exports = pingRoutes;
+export default pingRoutes;

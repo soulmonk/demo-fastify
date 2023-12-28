@@ -15,4 +15,4 @@ async function nestedRoutes(fastify) {
     fastify.addHook('onRequest', fastify.authorization);
 }
 
-module.exports = nestedRoutes;
+export default nestedRoutes;

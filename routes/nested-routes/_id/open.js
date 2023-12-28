@@ -3,6 +3,7 @@ async function nestedRoutesOpenByIdRoutes(fastify) {
   fastify.get('/open', {
     handler: (req, res) => {
       const id = req.params.id
+      console.log("line 6", req.log)
       req.log.info({id}, 'handler nestedRoutesOpenByIdRoutes')
       return {
         data: {
@@ -19,4 +20,4 @@ async function nestedRoutesOpenByIdRoutes(fastify) {
   });
 }
 
-module.exports = nestedRoutesOpenByIdRoutes;
+export default nestedRoutesOpenByIdRoutes;

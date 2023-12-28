@@ -1,6 +1,7 @@
 "use strict";
-const fp = require('fastify-plugin');
-module.exports = fp(async (fastify) => {
+import fp from 'fastify-plugin';
+
+export default fp(async (fastify) => {
     async function authorization(request, reply) {
         const sendUnauthorized = () => {
             void reply.code(401).send({ message: 'Unauthorized' });

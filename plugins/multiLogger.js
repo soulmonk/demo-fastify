@@ -1,6 +1,6 @@
 "use strict";
-const fp = require('fastify-plugin');
-module.exports = fp(async (fastify) => {
+import fp from 'fastify-plugin';
+export default fp(async (fastify) => {
   void fastify.decorate('makeANoise', (logger, prefix) => {
     fastify.log.info("I'm decorator")
     const msg = `${prefix} - I'm a message`;
