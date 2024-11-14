@@ -25,6 +25,23 @@ async function run () {
       level: process.env.LOG_LEVEL || 'info',
       // messageKey: 'message', // if you want to change the message key from 'msg' to 'message'
       // sanitize
+      redact: ['req.headers.authorization'],
+      serializers: {
+        req(req) {
+          return {
+            method: req.method,
+            url: req.url,
+            path: req.routerPath,
+            params: req.params,
+            hostname: req.hostname,
+            remoteAddress: req.ip,
+            remotePort: req.connection.remotePort,
+          };
+        },
+      },
+      formatters: {
+        level: (label) => ({ level: label.toUpperCase() }),
+      },
     }
     // disableRequestLogging: false,
   })
